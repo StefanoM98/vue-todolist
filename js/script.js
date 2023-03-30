@@ -21,13 +21,21 @@ createApp ({
                 {
                     text:"",
                     done: false
-                }
+                },
+            error: false
         }
     },
     methods: {
         newToDo (){
-            this.listToDo.push({...this.newTask})
-            this.newTask.text = ""
+            if (this.newTask.text.length > 0) {
+                this.listToDo.push({...this.newTask})
+                this.newTask.text = ""
+            }else {
+                this.error = true
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            }
         }
     }
 }).mount("#app")
