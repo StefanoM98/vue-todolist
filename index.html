@@ -14,14 +14,14 @@
         <div class="wrapper">
             <h1>Lista delle cose da fare</h1>
             <div class="new-todo">
-                <input type="text" placeholder="Aggiungi quello che hai da fare" @keyup.enter="aggiungiToDo">
-                <button class="add" @click="aggiungiToDo">Aggiungi</button>
+                <input type="text" v-model.trim="newTask.text" placeholder="Aggiungi quello che hai da fare" @keyup.enter="newToDo">
+                <button class="add" @click="newToDo">Aggiungi</button>
             </div>
 
             <ul class="list-todo">
                 <li v-for="todo in listToDo">
                     <p v-if="todo.done" class="done">{{ todo.text }}</p>
-                    <span v-else>{{ todo.text }}</span>
+                    <p v-else>{{ todo.text }}</p>
                     <span>{{ todo.done }}</span>
                 </li>
             </ul>

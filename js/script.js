@@ -17,15 +17,17 @@ createApp ({
                     done: true
                 },
             ],
-            newTodo: []
+            newTask:
+                {
+                    text:"",
+                    done: false
+                }
         }
     },
     methods: {
-        aggiungiToDo (){
-            if (this.newTodo.length > 0) {
-                this.listToDo.unshift(...this.newTodo)
-                this.newTodo= []
-            }
+        newToDo (){
+            this.listToDo.push({...this.newTask})
+            this.newTask.text = ""
         }
     }
 }).mount("#app")
